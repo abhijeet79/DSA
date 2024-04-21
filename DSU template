@@ -55,6 +55,40 @@ vector<int> parent;
     }
 
 
+***DSU CLASS***
+class DSU {
+public:
+    vector<int> parent;
+    vector<int> size;
+    int components;
+    DSU(int n){
+        parent.resize(n+1);
+        size.resize(n+1,1);
+        for(int i = 0; i<n+1; i++){
+            parent[i] = i;
+        }
+        components=n-1;
+    }
+    int find(int node){
+        if(node ==parent[node]) return node ;
+        return parent[node]=find(parent[node]);
+    }
+    void Union(int a,int b){
+        a=find(a);
+        b=find(b);
+        if(a==b) return ;
+        if(size[a]<size[b]) swap(a,b);
+        parent[b]=a;
+        size[a]+=size[b];
+        components--;
+        return;
+    }
+    bool isconnected(){
+        return components==1;
+    }
+};
+
+
 
 
   
