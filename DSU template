@@ -23,6 +23,13 @@
 
 
 
+***comparator****
+auto comparator=[&](vector<int> &v1,vector<int> &v2){
+      return v1[2]<v2[2];
+};
+
+
+
 
 vector<int> parent;
     vector<int> size;
