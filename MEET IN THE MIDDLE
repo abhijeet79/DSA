@@ -1,0 +1,15 @@
+void calcsubarray(vector<int> &a,unordered_map<int,set<int>> &mp,int n, int c)
+{
+    for (int i=0; i<(1<<n); i++)
+    {
+        ll s = 0;
+        int count=0;
+        for (int j=0; j<n; j++){
+            if (i & (1<<j)){
+                s += a[j+c];
+                count++;
+            }
+        }
+        mp[count].insert(s);
+    }
+}
