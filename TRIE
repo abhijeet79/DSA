@@ -1,0 +1,75 @@
+struct Node{
+    Node *links[26];
+    bool flag=false;
+    bool contains_node(char ch){
+        return (links[ch-'a']!=NULL);
+    }
+    Node* get(char ch){
+        return links[ch-'a'];
+    }
+    Node* put(char ch,Node* node){
+        links[ch-'a']=node;
+        return node;
+    }
+    void setflag( ){
+        flag=true;
+    }
+    bool getflag(){
+        return flag;
+    }
+
+};
+____________________________________________________________________________
+____________________________________________________________________________
+
+#include <bits/stdc++.h>
+struct Node{
+    int startswith_count=0;
+    int endswith_count=0;
+    Node *links[26];
+    bool flag=false;
+    bool contains_node(char ch){
+        return (links[ch-'a']!=NULL);
+    }
+    Node *get(char ch){
+        return links[ch-'a'];
+    }
+    Node* put(char ch,Node* node){
+        links[ch-'a']=node;
+        return node;
+    }
+    void setflag( ){
+        flag=true;
+    }
+    bool getflag(){
+        return flag;
+    }
+    void start_increase(){
+        startswith_count++;
+    }
+    void end_increase(){
+        endswith_count++;
+    }
+    int get_start(){
+        return startswith_count;
+    }
+    int get_end(){
+        return endswith_count;
+    }
+    void del_start(){
+        startswith_count--;
+    }
+    void del_end(){
+        endswith_count--;
+    }
+
+}; 
+class Trie{
+    private:
+    Node *root;
+
+    public:
+
+    Trie() {
+        root=new Node;
+    }
